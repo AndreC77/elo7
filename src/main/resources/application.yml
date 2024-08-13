@@ -1,0 +1,12 @@
+server:
+  port: 4500
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/desafio?useTimezone=true&serverTimezone=UTC
+    username: root
+    drive-class-name: com.mysql.cj.jdbc.Driver
+    platform: mysql
