@@ -14,5 +14,7 @@ import java.util.List;
 public class Planet {
     private Long id;
     private String name;
+    private Integer maxX;
+    private Integer maxY;
     private List<SpaceProbe> probes;
 }

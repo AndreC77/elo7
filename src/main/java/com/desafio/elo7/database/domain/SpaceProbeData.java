@@ -23,9 +23,9 @@ public class SpaceProbeData {
     @Enumerated(EnumType.STRING)
     private Direction direction;
     @Column(name = "position_x", nullable = false)
-    private String positionX;
+    private Integer positionX;
     @Column(name = "position_y", nullable = false)
-    private String positionY;
+    private Integer positionY;
     @ManyToOne
     @JoinColumn(name="planet_id", nullable=false)
     private PlanetData planetData;

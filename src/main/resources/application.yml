@@ -1,5 +1,5 @@
 server:
-  port: 4500
+  port: 8080
 
 spring:
   jpa:
@@ -10,3 +10,9 @@ spring:
     username: root
     drive-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
+
+spring-doc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

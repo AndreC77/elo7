@@ -19,6 +19,10 @@ public class PlanetData {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "max_x", nullable = false)
+    private Integer maxX;
+    @Column(name = "max_y", nullable = false)
+    private Integer maxY;
     @OneToMany(mappedBy = "planetData")
     private List<SpaceProbeData> probes;
 
