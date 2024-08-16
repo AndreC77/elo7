@@ -1,13 +1,15 @@
 server:
-  port: 8080
+  port: 4500
 
 spring:
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/desafio?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/desafio_db?useTimezone=true&serverTimezone=UTC
     username: root
+    password: dbDesafio
     drive-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
 
