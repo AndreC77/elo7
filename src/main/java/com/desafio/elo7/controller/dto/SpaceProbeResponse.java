@@ -1,6 +1,5 @@
 package com.desafio.elo7.controller.dto;
 
-import com.desafio.elo7.entities.Planet;
 import com.desafio.elo7.entities.enums.Direction;
 import lombok.Builder;
 import lombok.Data;

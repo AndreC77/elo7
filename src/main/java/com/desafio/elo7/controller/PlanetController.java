@@ -24,7 +24,7 @@ public class PlanetController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<PlanetResponse> createPlanet(@RequestBody PlanetRequest planetRequest){
+    public ResponseEntity<PlanetResponse> createPlanet(@RequestBody PlanetRequest planetRequest) throws PlanetException {
         Planet response = planetUseCase.createPlanet(ConvertersDTO.convertToPlanet(planetRequest));
         return ResponseEntity.status(HttpStatus.CREATED).body(ConvertersDTO.convertToPlanetResponse(response));
     }

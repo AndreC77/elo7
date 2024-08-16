@@ -1,6 +1,5 @@
 package com.desafio.elo7.controller.dto;
 
-import com.desafio.elo7.entities.SpaceProbe;
 import lombok.Builder;
 import lombok.Data;
 

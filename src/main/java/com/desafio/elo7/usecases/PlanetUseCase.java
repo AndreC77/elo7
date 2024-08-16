@@ -19,7 +19,10 @@ public class PlanetUseCase {
 
     final PlanetRepository planetRepository;
 
-    public Planet createPlanet(final Planet planet){
+    public Planet createPlanet(final Planet planet) throws PlanetException {
+        if(planet.getMaxX() < 1 || planet.getMaxY() < 1){
+            throw new PlanetException("Invalid Planet Area");
+        }
         PlanetData planetData = planetRepository.save(Converters.convertToPlanetData(planet));
         return Converters.convertToPlanet(planetData);
     }
