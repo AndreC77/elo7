@@ -106,7 +106,7 @@ public class MoveProbeUseCase {
 
     private int adjustPositionX(int positionX, PlanetData planetData){
         if(positionX > planetData.getMaxX()) positionX = 1;
-        if(positionX < 1) positionX = planetData.getMaxY();
+        if(positionX < 1) positionX = planetData.getMaxX();
         return positionX;
     }
 
