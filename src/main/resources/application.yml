@@ -7,7 +7,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:3306/desafio_db?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://db:3306/desafio_db?useSSL=false&createDataBaseIfNotExist=true
     username: root
     password: dbDesafio
     drive-class-name: com.mysql.cj.jdbc.Driver

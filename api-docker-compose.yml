@@ -1,3 +1,4 @@
+
 services:
   db:
     image: mysql:latest
@@ -7,7 +8,7 @@ services:
     ports:
       - "3306:3306"
     expose:
-      - "3306"
+      - 3306
     environment:
       MYSQL_ROOT_PASSWORD: dbDesafio
       MYSQL_DATABASE: desafio_db
@@ -28,7 +29,6 @@ services:
     restart: on-failure
     ports:
       - "4500:4500"
-
 
 volumes:
   dbase:
