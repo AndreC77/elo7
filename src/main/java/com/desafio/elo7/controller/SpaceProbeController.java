@@ -11,6 +11,7 @@ import com.desafio.elo7.exception.PlanetException;
 import com.desafio.elo7.exception.SpaceProbeException;
 import com.desafio.elo7.usecases.MoveProbeUseCase;
 import com.desafio.elo7.usecases.SpaceProbeUseCase;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class SpaceProbeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<SpaceProbeResponse> landSpaceProbe(@RequestBody SpaceProbeRequest spaceProbeRequest) throws PlanetException, SpaceProbeException {
+    public ResponseEntity<SpaceProbeResponse> landSpaceProbe(@RequestBody  @Valid SpaceProbeRequest spaceProbeRequest) throws PlanetException, SpaceProbeException {
         SpaceProbe response = spaceProbeUseCase.createSpaceProbe(ConvertersDTO.convertToSpaceProbeResponse(spaceProbeRequest), spaceProbeRequest.getPlanetId());
         return ResponseEntity.status(HttpStatus.CREATED).body(ConvertersDTO.convertToSpaceProbeResponse(response));
     }
@@ -52,7 +53,7 @@ public class SpaceProbeController {
 
     @PostMapping("/move")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<SpaceProbeResponse> moveSpaceProbe(@RequestBody MovementCommandsRequest movementCommandsRequest) throws CommandsException, SpaceProbeException, PlanetException {
+    public ResponseEntity<SpaceProbeResponse> moveSpaceProbe(@RequestBody @Valid MovementCommandsRequest movementCommandsRequest) throws CommandsException, SpaceProbeException, PlanetException {
         MovementCommands movementCommands = MovementCommands.builder()
                 .commands(movementCommandsRequest.getCommands())
                 .build();

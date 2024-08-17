@@ -6,6 +6,7 @@ import com.desafio.elo7.controller.dto.PlanetResponse;
 import com.desafio.elo7.entities.Planet;
 import com.desafio.elo7.exception.PlanetException;
 import com.desafio.elo7.usecases.PlanetUseCase;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class PlanetController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<PlanetResponse> createPlanet(@RequestBody PlanetRequest planetRequest) throws PlanetException {
+    public ResponseEntity<PlanetResponse> createPlanet(@RequestBody @Valid PlanetRequest planetRequest) throws PlanetException {
         Planet response = planetUseCase.createPlanet(ConvertersDTO.convertToPlanet(planetRequest));
         return ResponseEntity.status(HttpStatus.CREATED).body(ConvertersDTO.convertToPlanetResponse(response));
     }

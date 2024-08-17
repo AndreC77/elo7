@@ -30,8 +30,13 @@ public class MoveProbeUseCase {
     public SpaceProbe execute(MovementCommands movementCommands, Long SpaceProbeId) throws CommandsException, SpaceProbeException, PlanetException {
         char[] commands = movementCommands.getCommands().toUpperCase().toCharArray();
         validateCommands(commands);
+        log.info("[MoveProbeUseCase] === Moving the space probe ===");
+
+        log.info("[MoveProbeUseCase] === Searching Space probe by ID {} ===", SpaceProbeId);
         Optional<SpaceProbeData> spaceProbeData = spaceProbeRepository.findById(SpaceProbeId);
         if (spaceProbeData.isEmpty()) throw new SpaceProbeException("Space probe does not exist");
+
+        log.info("[PlanetUseCase] === Searching Planet by ID {} ===", spaceProbeData.get().getPlanetData().getId());
         Optional<PlanetData> planetData = planetRepository.findById(spaceProbeData.get().getPlanetData().getId());
         if (planetData.isEmpty()) throw new PlanetException("Planet does not exist");
         planetData.get().getProbes().remove(spaceProbeData.get());
@@ -51,6 +56,7 @@ public class MoveProbeUseCase {
 
         validateProbeLanding(spaceProbeData.get(), planetData.get());
         spaceProbeRepository.save(spaceProbeData.get());
+        log.info("[MoveProbeUseCase] === Space probe movement carried out successfully ===");
         return Converters.convertToSpaceProbe(spaceProbeData.get());
     }
 

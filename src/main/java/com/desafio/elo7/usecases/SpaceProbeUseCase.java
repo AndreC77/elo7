@@ -24,6 +24,7 @@ public class SpaceProbeUseCase {
 
 
     public SpaceProbe createSpaceProbe(final SpaceProbe spaceProbe, final Long planetId) throws PlanetException, SpaceProbeException {
+        log.info("[SpaceProbeUseCase] === Landing a new space probe ===");
         PlanetData planet = getPlanet(planetId);
         SpaceProbeData spaceProbeData = Converters.convertToSpaceProbeData(spaceProbe);
         spaceProbeData.setPlanetData(planet);
@@ -32,27 +33,34 @@ public class SpaceProbeUseCase {
             throw new SpaceProbeException("Invalid landing area");
         }
         validateProbeLanding(spaceProbeData, planet);
+
+        log.info("[SpaceProbeUseCase] === Space probe landing successfully ===");
         return Converters.convertToSpaceProbe(spaceProbeRepository.save(spaceProbeData));
     }
 
     public SpaceProbe findById(final Long id) throws SpaceProbeException {
+        log.info("[SpaceProbeUseCase] === Searching Space probe by ID {} ===", id);
         Optional<SpaceProbeData> spaceProbeData = spaceProbeRepository.findById(id);
         if (spaceProbeData.isPresent()){
+            log.info("[SpaceProbeUseCase] === Space probe successfully found ===");
             return Converters.convertToSpaceProbe(spaceProbeData.get());
         }
         throw new SpaceProbeException("Space probe does not exist");
     }
 
     public void deleteById(final Long id){
+        log.info("[SpaceProbeUseCase] === Deactivating space probe ID {}===", id);
         spaceProbeRepository.deleteById(id);
     }
 
     public List<SpaceProbe> findAllSpacesProbe(){
+        log.info("[PlanetUseCase] === Searching all registered Space probes ===");
         List<SpaceProbeData> spacesProbe = spaceProbeRepository.findAll();
         return spacesProbe.stream().map(Converters::convertToSpaceProbe).toList();
     }
 
     private PlanetData getPlanet(final Long planetId) throws PlanetException {
+        log.info("[SpaceProbeUseCase] === Searching Planet by ID {} ===", planetId);
         Optional<PlanetData> planetData = planetRepository.findById(planetId);
         if(planetData.isPresent()){
             return planetData.get();
