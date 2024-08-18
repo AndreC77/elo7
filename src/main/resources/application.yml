@@ -7,11 +7,14 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://db:3306/desafio_db?useSSL=false&createDataBaseIfNotExist=true
+    url: jdbc:mysql://db:3306/desafio_db?useSSL=false&createDataBaseIfNotExist=true&allowPublicKeyRetrieval=true
     username: root
     password: dbDesafio
     drive-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
 
 spring-doc:
   api-docs:

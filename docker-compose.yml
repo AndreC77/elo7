@@ -12,8 +12,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: dbDesafio
       MYSQL_DATABASE: desafio_db
-      MYSQL_PASSWORD: secret
-      MYSQL_USER: myuser
 
   phpmyadmin:
     image: phpmyadmin

@@ -14,23 +14,22 @@ O objetivo do sistema é ser a implementação do desafio de controlar sondas em
 
 ## Inicializando o Sistema
 
-### Via IDE
+### Start e utilização da API
 
-No caminho _com.desafio.elo7_ encontrar-se a classe [Application.java](.src/main/java/com/desafio/elo7/Elo7Application.java), execute-a como uma aplicação Java via IDE.
-
-### Via Maven
-
-Construa a aplicação com __mvn clean install__, logo após, é possível executar a aplicação via linha de comando:
-```java -jar  elo7-0.0.1-SNAPSHOT.jar```
+Construa a aplicação com __mvn clean install__;
 
 ---
 
-### Banco de Dodos MySQL
-jdbc:mysql://localhost:3306/desafio?useTimezone=true&serverTimezone=UTC
+Execute o comando __docker-compose__ no terminal;
 
-### Swagger
+Após as imagens serem criadas e API for executada com sucesso podemos acessar:
 
-* http://localhost:8080/swagger-ui.html
+### Banco de Dodos MySQL pelo PHPmyadmin
+* http://localhost:8000/index.php?route=/&route=%2F&db=desafio_db
+
+### API via Swagger
+
+* http://localhost:4500/swagger-ui/index.html#/
 
 ### Tecnologias
 
