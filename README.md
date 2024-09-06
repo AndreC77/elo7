@@ -20,7 +20,7 @@ Construa a aplicação com __mvn clean install__;
 
 ---
 
-Execute o comando __docker-compose__ no terminal;
+Execute o comando __docker-compose up -d__ no terminal;
 
 Após as imagens serem criadas e API for executada com sucesso podemos acessar:
 
