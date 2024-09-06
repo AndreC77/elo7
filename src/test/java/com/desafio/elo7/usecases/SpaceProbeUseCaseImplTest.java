@@ -1,10 +1,11 @@
 package com.desafio.elo7.usecases;
 
-import com.desafio.elo7.database.PlanetRepository;
-import com.desafio.elo7.database.SpaceProbeRepository;
+import com.desafio.elo7.controller.dto.SpaceProbeRequest;
+import com.desafio.elo7.controller.dto.SpaceProbeResponse;
+import com.desafio.elo7.database.PlanetDatabase;
+import com.desafio.elo7.database.SpaceProbeDatabase;
 import com.desafio.elo7.database.domain.PlanetData;
 import com.desafio.elo7.database.domain.SpaceProbeData;
-import com.desafio.elo7.entities.SpaceProbe;
 import com.desafio.elo7.entities.enums.Direction;
 import com.desafio.elo7.exception.PlanetException;
 import com.desafio.elo7.exception.SpaceProbeException;
@@ -24,31 +25,31 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class SpaceProbeUseCaseTest {
+public class SpaceProbeUseCaseImplTest {
 
     @InjectMocks
-    SpaceProbeUseCase spaceProbeUseCase;
+    SpaceProbeUseCaseImpl spaceProbeUseCaseImpl;
 
     @Mock
-    SpaceProbeRepository spaceProbeRepository;
+    SpaceProbeDatabase spaceProbeDatabase;
 
     @Mock
-    PlanetRepository planetRepository;
+    PlanetDatabase planetDatabase;
 
     @Test
     void shouldCreatePlanetSuccessfuly() throws PlanetException, SpaceProbeException {
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
-        when(spaceProbeRepository.save(any())).thenReturn(spaceProbeDataBuild());
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
+        when(spaceProbeDatabase.save(any())).thenReturn(spaceProbeDataBuild());
 
-        SpaceProbe spaceProbe = spaceProbeUseCase.createSpaceProbe(SpaceProbe.builder()
+        SpaceProbeResponse spaceProbe = spaceProbeUseCaseImpl.createSpaceProbe(SpaceProbeRequest.builder()
                         .name("RTX45")
                         .positionX(1)
                         .positionY(2)
                         .direction(Direction.NORTH)
                 .build(), 1l);
 
-        verify(spaceProbeRepository, times(1)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
         assertEquals(1l, spaceProbe.getId());
         assertEquals("RTX45", spaceProbe.getName());
         assertEquals(1, spaceProbe.getPositionX());
@@ -59,30 +60,30 @@ public class SpaceProbeUseCaseTest {
 
     @Test
     void shouldThrowInvalidLandingArea() {
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
 
-        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  spaceProbeUseCase.createSpaceProbe(SpaceProbe.builder()
+        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  spaceProbeUseCaseImpl.createSpaceProbe(SpaceProbeRequest.builder()
                 .name("RTX45")
                 .positionX(6)
                 .positionY(8)
                 .direction(Direction.NORTH)
                 .build(), 1l));
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
     void shouldThrowPlanetDoesNotExist() {
-        when(planetRepository.findById(any())).thenReturn(Optional.empty());
+        when(planetDatabase.findById(any())).thenReturn(Optional.empty());
 
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  spaceProbeUseCase.createSpaceProbe(SpaceProbe.builder()
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  spaceProbeUseCaseImpl.createSpaceProbe(SpaceProbeRequest.builder()
                 .name("RTX45")
                 .positionX(1)
                 .positionY(2)
                 .direction(Direction.NORTH)
                 .build(), 1l));
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
@@ -90,24 +91,24 @@ public class SpaceProbeUseCaseTest {
         PlanetData planet = planetDataBuild();
         planet.setProbes(List.of(spaceProbeDataBuild()));
         planetDataBuild().setProbes(List.of(spaceProbeDataBuild()));
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planet));
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planet));
 
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  spaceProbeUseCase.createSpaceProbe(SpaceProbe.builder()
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  spaceProbeUseCaseImpl.createSpaceProbe(SpaceProbeRequest.builder()
                 .name("RTX45")
                 .positionX(1)
                 .positionY(2)
                 .direction(Direction.NORTH)
                 .build(), 1l));
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
     void shouldReturnAProbeList(){
-        when(spaceProbeRepository.findAll()).thenReturn(List.of(spaceProbeDataBuild()));
-        List<SpaceProbe> probes = spaceProbeUseCase.findAllSpacesProbe();
+        when(spaceProbeDatabase.findAll()).thenReturn(List.of(spaceProbeDataBuild()));
+        List<SpaceProbeResponse> probes = spaceProbeUseCaseImpl.findAllSpacesProbe();
 
-        verify(spaceProbeRepository, times(1)).findAll();
+        verify(spaceProbeDatabase, times(1)).findAll();
         assertFalse(probes.isEmpty());
         assertEquals(1l, probes.get(0).getId());
         assertEquals("RTX45", probes.get(0).getName());
@@ -118,10 +119,10 @@ public class SpaceProbeUseCaseTest {
 
     @Test
     void shouldReturnProbeByIdSuccessfully() throws SpaceProbeException {
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
-        SpaceProbe spaceProbe = spaceProbeUseCase.findById(1l);
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
+        SpaceProbeResponse spaceProbe = spaceProbeUseCaseImpl.findSpaceProbeById(1l);
 
-        verify(spaceProbeRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).findById(any());
         assertEquals(1l, spaceProbe.getId());
         assertEquals("RTX45", spaceProbe.getName());
         assertEquals(1, spaceProbe.getPositionX());
@@ -131,9 +132,9 @@ public class SpaceProbeUseCaseTest {
 
     @Test
     void shouldThrowProbeDoesNotExist(){
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.empty());
-        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  spaceProbeUseCase.findById(1l));
-        verify(spaceProbeRepository, times(1)).findById(any());
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.empty());
+        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  spaceProbeUseCaseImpl.findSpaceProbeById(1l));
+        verify(spaceProbeDatabase, times(1)).findById(any());
     }
 
 

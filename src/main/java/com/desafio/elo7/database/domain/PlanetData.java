@@ -1,14 +1,13 @@
 package com.desafio.elo7.database.domain;
 
+import com.desafio.elo7.exception.PlanetException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -25,5 +24,38 @@ public class PlanetData {
     private Integer maxY;
     @OneToMany(mappedBy = "planetData")
     private List<SpaceProbeData> probes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public Integer getMaxX() {
+        return maxX;
+    }
+
+
+    public Integer getMaxY() {
+        return maxY;
+    }
+
+    public List<SpaceProbeData> getProbes() {
+        return probes;
+    }
+
+    public void setProbes(List<SpaceProbeData> probes) {
+        this.probes = probes;
+    }
+
+    public void validateProbeLanding(SpaceProbeData spaceProbeData) throws PlanetException {
+        for(SpaceProbeData probe : this.probes){
+            if(spaceProbeData.getPositionX() == probe.getPositionX()
+                    && spaceProbeData.getPositionY() == probe.getPositionY()){
+                throw new PlanetException("Landing area blocked");
+            }
+        }
+    }
 
 }

@@ -1,9 +1,11 @@
 package com.desafio.elo7.utils;
 
+import com.desafio.elo7.controller.dto.PlanetRequest;
+import com.desafio.elo7.controller.dto.PlanetResponse;
+import com.desafio.elo7.controller.dto.SpaceProbeRequest;
+import com.desafio.elo7.controller.dto.SpaceProbeResponse;
 import com.desafio.elo7.database.domain.PlanetData;
 import com.desafio.elo7.database.domain.SpaceProbeData;
-import com.desafio.elo7.entities.Planet;
-import com.desafio.elo7.entities.SpaceProbe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.Objects;
 
 public class Converters {
 
-    public static PlanetData convertToPlanetData(final Planet planet){
+    public static PlanetData convertToPlanetData(final PlanetRequest planet){
         if (Objects.isNull(planet)){
             return null;
         }
@@ -22,8 +24,8 @@ public class Converters {
                 .build();
     }
 
-    public static Planet convertToPlanet(final PlanetData planetData){
-        return Planet.builder()
+    public static PlanetResponse convertToPlanet(final PlanetData planetData){
+        return PlanetResponse.builder()
                 .id(planetData.getId())
                 .name(planetData.getName())
                 .maxX(planetData.getMaxX())
@@ -32,11 +34,11 @@ public class Converters {
                 .build();
     }
 
-    public static List<SpaceProbe> getListProbes(final List<SpaceProbeData> probeDataList){
-        List<SpaceProbe> probes = new ArrayList<>();
+    public static List<SpaceProbeResponse> getListProbes(final List<SpaceProbeData> probeDataList){
+        List<SpaceProbeResponse> probes = new ArrayList<>();
         if (probeDataList != null && !probeDataList.isEmpty()){
             for(SpaceProbeData probe : probeDataList){
-                SpaceProbe spaceProbe = SpaceProbe.builder()
+                SpaceProbeResponse spaceProbe = SpaceProbeResponse.builder()
                         .id(probe.getId())
                         .name(probe.getName())
                         .direction(probe.getDirection())
@@ -50,8 +52,8 @@ public class Converters {
         return probes;
     }
 
-    public static SpaceProbe convertToSpaceProbe(final SpaceProbeData spaceProbeData){
-        return SpaceProbe.builder()
+    public static SpaceProbeResponse convertToSpaceProbe(final SpaceProbeData spaceProbeData){
+        return SpaceProbeResponse.builder()
                 .id(spaceProbeData.getId())
                 .name(spaceProbeData.getName())
                 .positionX(spaceProbeData.getPositionX())
@@ -61,7 +63,7 @@ public class Converters {
                 .build();
     }
 
-    public static SpaceProbeData convertToSpaceProbeData(final SpaceProbe spaceProbe){
+    public static SpaceProbeData convertToSpaceProbeData(final SpaceProbeRequest spaceProbe){
         return SpaceProbeData.builder()
                 .name(spaceProbe.getName())
                 .positionX(spaceProbe.getPositionX())

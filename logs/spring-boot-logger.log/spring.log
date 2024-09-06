@@ -1,40 +1,283 @@
-2024-08-17 15:33:11,289 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
-2024-08-17 15:33:11,371 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 19872 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
-2024-08-17 15:33:11,373 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
-2024-08-17 15:33:13,626 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-17 15:33:13,629 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-08-17 15:33:13,706 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2024-08-17 15:33:13,713 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2024-08-17 15:33:13,719 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 80 ms. Found 0 JDBC repository interfaces.
-2024-08-17 15:33:13,753 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-17 15:33:13,756 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-17 15:33:13,846 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 80 ms. Found 2 JPA repository interfaces.
-2024-08-17 15:33:15,206 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
-2024-08-17 15:33:15,237 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
-2024-08-17 15:33:15,243 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
-2024-08-17 15:33:15,243 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-17 15:33:15,385 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
-2024-08-17 15:33:15,386 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3870 ms
-2024-08-17 15:33:15,879 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-17 15:33:15,992 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-08-17 15:33:16,059 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
-2024-08-17 15:33:16,859 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-17 15:33:16,917 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
-2024-08-17 15:33:17,243 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69069866
-2024-08-17 15:33:17,248 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
-2024-08-17 15:33:17,337 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-17 15:33:17,341 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-08-17 15:33:19,120 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-17 15:33:19,252 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-17 15:33:20,425 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-08-17 15:33:21,694 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
-2024-08-17 15:33:21,978 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
-2024-08-17 15:33:22,013 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 12.151 seconds (process running for 13.213)
-2024-08-17 15:33:43,555 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-17 15:33:43,556 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
-2024-08-17 15:33:43,561 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 5 ms
-2024-08-17 15:33:44,001 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCase                         : [PlanetUseCase] === Creating new planet ===
-2024-08-17 15:33:44,327 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCase                         : [PlanetUseCase] === Plannet created successfully ===
-2024-08-17 15:34:07,027 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-17 15:34:07,031 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
-2024-08-17 15:34:07,046 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 14:23:08,462 WARN   --- [riPool-1 housekeeper]  c.z.h.p.HikariPool$HouseKeeper                : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16h17m44s320ms784µs400ns).
+2024-09-05 20:08:32,743 WARN   --- [riPool-1 housekeeper]  c.z.h.p.HikariPool$HouseKeeper                : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h25m21s416ms713µs800ns).
+2024-09-05 20:15:35,220 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 20:15:35,279 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 20:15:35,304 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 21:43:00,994 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 21:43:01,098 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 5736 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
+2024-09-05 21:43:01,100 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
+2024-09-05 21:43:03,466 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:43:03,470 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-09-05 21:43:03,549 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:43:03,552 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:43:03,553 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 72 ms. Found 0 JDBC repository interfaces.
+2024-09-05 21:43:03,584 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:43:03,588 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 21:43:03,661 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+2024-09-05 21:43:04,914 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
+2024-09-05 21:43:04,939 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:43:04,945 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
+2024-09-05 21:43:04,946 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-05 21:43:05,093 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
+2024-09-05 21:43:05,094 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3778 ms
+2024-09-05 21:43:05,573 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 21:43:05,728 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-05 21:43:05,846 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
+2024-09-05 21:43:06,513 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 21:43:06,554 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
+2024-09-05 21:43:06,869 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ca2cd5e
+2024-09-05 21:43:06,872 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
+2024-09-05 21:43:06,912 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 21:43:06,915 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-05 21:43:08,359 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 21:43:08,523 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:43:09,323 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 21:43:10,295 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:43:10,329 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
+2024-09-05 21:43:10,348 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 10.595 seconds (process running for 12.101)
+2024-09-05 21:43:27,736 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 21:43:27,737 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
+2024-09-05 21:43:27,739 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 2 ms
+2024-09-05 21:43:27,816 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching Planet by ID 1 ===
+2024-09-05 21:43:28,022 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Planet successfully found ===
+2024-09-05 21:43:34,673 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching Planet by ID 2 ===
+2024-09-05 21:43:34,678 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Planet successfully found ===
+2024-09-05 21:43:40,127 INFO   --- [http-nio-4500-exec-3]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching Planet by ID 3 ===
+2024-09-05 21:43:58,322 ERROR  --- [http-nio-4500-exec-4]  o.a.j.l.DirectJDKLog                          : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.desafio.elo7.controller.dto.PlanetRequest]] with root cause
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.desafio.elo7.controller.dto.PlanetRequest` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 2, column: 3]
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1887)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1375)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1508)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:348)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2125)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1501)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:161)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:135)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-05 21:45:20,736 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:45:20,743 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 21:45:20,762 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 21:45:32,288 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 21:45:32,375 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 11468 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
+2024-09-05 21:45:32,377 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
+2024-09-05 21:45:35,244 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:45:35,247 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-09-05 21:45:35,326 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:45:35,329 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:45:35,331 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 73 ms. Found 0 JDBC repository interfaces.
+2024-09-05 21:45:35,352 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:45:35,357 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 21:45:35,432 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 66 ms. Found 2 JPA repository interfaces.
+2024-09-05 21:45:36,763 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
+2024-09-05 21:45:36,785 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:45:36,790 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
+2024-09-05 21:45:36,792 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-05 21:45:36,995 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
+2024-09-05 21:45:36,996 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4510 ms
+2024-09-05 21:45:37,847 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 21:45:37,980 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-05 21:45:38,071 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
+2024-09-05 21:45:38,727 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 21:45:38,781 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
+2024-09-05 21:45:39,122 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f9addd4
+2024-09-05 21:45:39,126 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
+2024-09-05 21:45:39,165 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 21:45:39,167 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-05 21:45:40,637 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 21:45:40,756 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:45:41,495 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 21:45:42,644 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:45:42,678 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
+2024-09-05 21:45:42,696 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 11.683 seconds (process running for 12.888)
+2024-09-05 21:45:48,694 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 21:45:48,695 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
+2024-09-05 21:45:48,697 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 2 ms
+2024-09-05 21:45:48,961 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Creating new planet ===
+2024-09-05 21:45:49,122 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Plannet created successfully ===
+2024-09-05 21:46:21,321 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:46:21,325 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 21:46:21,335 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 21:46:31,465 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 21:46:31,544 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 13644 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
+2024-09-05 21:46:31,546 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
+2024-09-05 21:46:33,703 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:46:33,706 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-09-05 21:46:33,773 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:46:33,776 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:46:33,777 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 63 ms. Found 0 JDBC repository interfaces.
+2024-09-05 21:46:33,800 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:46:33,802 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 21:46:33,870 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2024-09-05 21:46:35,045 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
+2024-09-05 21:46:35,073 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:46:35,084 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
+2024-09-05 21:46:35,085 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-05 21:46:35,244 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
+2024-09-05 21:46:35,245 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3525 ms
+2024-09-05 21:46:35,741 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 21:46:35,865 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-05 21:46:35,937 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
+2024-09-05 21:46:36,673 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 21:46:36,734 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
+2024-09-05 21:46:36,980 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@83ebdc5
+2024-09-05 21:46:36,983 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
+2024-09-05 21:46:37,011 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 21:46:37,012 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-05 21:46:38,269 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 21:46:38,379 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:46:39,100 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 21:46:40,114 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:46:40,146 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
+2024-09-05 21:46:40,161 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 9.797 seconds (process running for 10.857)
+2024-09-05 21:46:50,055 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 21:46:50,056 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
+2024-09-05 21:46:50,058 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 2 ms
+2024-09-05 21:46:50,356 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Creating new planet ===
+2024-09-05 21:46:50,480 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Plannet created successfully ===
+2024-09-05 21:46:59,882 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching all registered planets ===
+2024-09-05 21:49:12,626 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:49:12,629 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 21:49:12,661 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 21:49:17,203 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 21:49:17,270 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 19632 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
+2024-09-05 21:49:17,272 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
+2024-09-05 21:49:19,331 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:49:19,344 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-09-05 21:49:19,417 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:49:19,420 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 21:49:19,422 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 67 ms. Found 0 JDBC repository interfaces.
+2024-09-05 21:49:19,442 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 21:49:19,445 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 21:49:19,523 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
+2024-09-05 21:49:20,709 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
+2024-09-05 21:49:20,732 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:49:20,737 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
+2024-09-05 21:49:20,737 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-05 21:49:20,896 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
+2024-09-05 21:49:20,897 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3422 ms
+2024-09-05 21:49:21,347 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 21:49:21,473 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-05 21:49:21,545 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
+2024-09-05 21:49:22,213 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 21:49:22,270 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
+2024-09-05 21:49:22,615 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@83ebdc5
+2024-09-05 21:49:22,619 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
+2024-09-05 21:49:22,662 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 21:49:22,665 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-05 21:49:24,251 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 21:49:24,387 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:49:25,046 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 21:49:25,949 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
+2024-09-05 21:49:25,979 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
+2024-09-05 21:49:26,022 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 9.88 seconds (process running for 10.913)
+2024-09-05 21:50:20,144 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 21:50:20,146 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
+2024-09-05 21:50:20,149 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 3 ms
+2024-09-05 21:50:20,199 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching all registered planets ===
+2024-09-05 21:50:34,436 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Creating new planet ===
+2024-09-05 21:50:41,770 INFO   --- [http-nio-4500-exec-3]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Creating new planet ===
+2024-09-05 21:50:41,848 INFO   --- [http-nio-4500-exec-3]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Plannet created successfully ===
+2024-09-05 21:50:46,455 INFO   --- [http-nio-4500-exec-4]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching Planet by ID 3 ===
+2024-09-05 21:50:46,479 INFO   --- [http-nio-4500-exec-4]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Planet successfully found ===
+2024-09-05 21:50:51,015 INFO   --- [http-nio-4500-exec-5]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Searching Planet by ID 1 ===
+2024-09-05 21:50:51,021 INFO   --- [http-nio-4500-exec-5]  c.d.e.u.PlanetUseCaseImpl                     : [PlanetUseCase] === Planet successfully found ===
+2024-09-05 21:51:22,698 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 21:51:22,704 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 21:51:22,718 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.
+2024-09-05 22:31:54,518 INFO   --- [  background-preinit]  o.h.v.i.u.Version                             : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 22:31:54,607 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Starting Elo7Application using Java 21.0.4 with PID 11728 (C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7\target\classes started by andre_tcrtpr4 in C:\Users\andre_tcrtpr4\Desktop\Desafio\elo7)
+2024-09-05 22:31:54,610 INFO   --- [                main]  o.s.b.SpringApplication                       : No active profile set, falling back to 1 default profile: "default"
+2024-09-05 22:31:56,708 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 22:31:56,711 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-09-05 22:31:56,782 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.PlanetRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 22:31:56,785 INFO   --- [                main]  d.r.c.RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.desafio.elo7.database.SpaceProbeRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-09-05 22:31:56,786 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 65 ms. Found 0 JDBC repository interfaces.
+2024-09-05 22:31:56,806 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-05 22:31:56,808 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 22:31:56,889 INFO   --- [                main]  o.s.d.r.c.RepositoryConfigurationDelegate     : Finished Spring Data repository scanning in 60 ms. Found 2 JPA repository interfaces.
+2024-09-05 22:31:58,829 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat initialized with port 4500 (http)
+2024-09-05 22:31:58,854 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing ProtocolHandler ["http-nio-4500"]
+2024-09-05 22:31:58,864 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting service [Tomcat]
+2024-09-05 22:31:58,865 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-05 22:31:59,012 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Initializing Spring embedded WebApplicationContext
+2024-09-05 22:31:59,013 INFO   --- [                main]  .s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4228 ms
+2024-09-05 22:31:59,435 INFO   --- [                main]  o.h.j.i.u.LogHelper                           : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 22:31:59,581 INFO   --- [                main]  o.h.Version                                   : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-05 22:31:59,692 INFO   --- [                main]  o.h.c.i.RegionFactoryInitiator                : HHH000026: Second-level cache disabled
+2024-09-05 22:32:00,430 INFO   --- [                main]  o.s.o.j.p.SpringPersistenceUnitInfo           : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 22:32:00,502 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Starting...
+2024-09-05 22:32:00,880 INFO   --- [                main]  c.z.h.p.HikariPool                            : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c08c787
+2024-09-05 22:32:00,885 INFO   --- [                main]  c.z.h.HikariDataSource                        : HikariPool-1 - Start completed.
+2024-09-05 22:32:00,929 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 22:32:00,931 WARN   --- [                main]  o.h.e.j.d.i.DialectFactoryImpl                : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-05 22:32:02,387 INFO   --- [                main]  o.h.e.t.j.p.i.JtaPlatformInitiator            : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 22:32:02,502 INFO   --- [                main]  o.s.o.j.AbstractEntityManagerFactoryBean      : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 22:32:03,184 WARN   --- [                main]  .o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 22:32:04,126 INFO   --- [                main]  o.a.j.l.DirectJDKLog                          : Starting ProtocolHandler ["http-nio-4500"]
+2024-09-05 22:32:04,157 INFO   --- [                main]  o.s.b.w.e.t.TomcatWebServer                   : Tomcat started on port 4500 (http) with context path '/'
+2024-09-05 22:32:04,173 INFO   --- [                main]  o.s.b.StartupInfoLogger                       : Started Elo7Application in 10.819 seconds (process running for 11.888)
+2024-09-05 22:32:27,662 INFO   --- [http-nio-4500-exec-1]  o.a.j.l.DirectJDKLog                          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 22:32:27,663 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Initializing Servlet 'dispatcherServlet'
+2024-09-05 22:32:27,665 INFO   --- [http-nio-4500-exec-1]  o.s.w.s.FrameworkServlet                      : Completed initialization in 2 ms
+2024-09-05 22:32:28,014 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.SpaceProbeUseCaseImpl                 : [SpaceProbeUseCase] === Landing a new space probe ===
+2024-09-05 22:32:28,016 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.SpaceProbeUseCaseImpl                 : [SpaceProbeUseCase] === Searching Planet by ID 2 ===
+2024-09-05 22:32:28,216 INFO   --- [http-nio-4500-exec-1]  c.d.e.u.SpaceProbeUseCaseImpl                 : [SpaceProbeUseCase] === Space probe landing successfully ===
+2024-09-05 22:32:32,048 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.SpaceProbeUseCaseImpl                 : [SpaceProbeUseCase] === Landing a new space probe ===
+2024-09-05 22:32:32,049 INFO   --- [http-nio-4500-exec-2]  c.d.e.u.SpaceProbeUseCaseImpl                 : [SpaceProbeUseCase] === Searching Planet by ID 2 ===
+2024-09-05 22:32:40,036 INFO   --- [licationShutdownHook]  o.s.o.j.AbstractEntityManagerFactoryBean      : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 22:32:40,039 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown initiated...
+2024-09-05 22:32:40,049 INFO   --- [licationShutdownHook]  c.z.h.HikariDataSource                        : HikariPool-1 - Shutdown completed.

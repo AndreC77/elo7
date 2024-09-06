@@ -1,9 +1,7 @@
 package com.desafio.elo7.controller;
 
-import com.desafio.elo7.controller.converters.ConvertersDTO;
 import com.desafio.elo7.controller.dto.PlanetRequest;
 import com.desafio.elo7.controller.dto.PlanetResponse;
-import com.desafio.elo7.entities.Planet;
 import com.desafio.elo7.exception.PlanetException;
 import com.desafio.elo7.usecases.PlanetUseCase;
 import jakarta.validation.Valid;
@@ -26,22 +24,21 @@ public class PlanetController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<PlanetResponse> createPlanet(@RequestBody @Valid PlanetRequest planetRequest) throws PlanetException {
-        Planet response = planetUseCase.createPlanet(ConvertersDTO.convertToPlanet(planetRequest));
-        return ResponseEntity.status(HttpStatus.CREATED).body(ConvertersDTO.convertToPlanetResponse(response));
+        PlanetResponse response = planetUseCase.createPlanet(planetRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping(path = "/{planetId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<PlanetResponse> getPlanetById(@PathVariable Long planetId) throws PlanetException {
-        Planet response = planetUseCase.findById(planetId);
-        return ResponseEntity.status(HttpStatus.OK).body(ConvertersDTO.convertToPlanetResponse(response));
+        PlanetResponse response = planetUseCase.findPlanetById(planetId);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<PlanetResponse>> getPlanets() {
-        List<Planet> planets = planetUseCase.findAllPlanets();
-        List<PlanetResponse> response = planets.stream().map(ConvertersDTO::convertToPlanetResponse).toList();
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        List<PlanetResponse> planets = planetUseCase.findAllPlanets();
+        return ResponseEntity.status(HttpStatus.OK).body(planets);
     }
 }

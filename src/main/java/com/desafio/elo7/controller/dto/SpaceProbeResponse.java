@@ -2,9 +2,7 @@ package com.desafio.elo7.controller.dto;
 
 import com.desafio.elo7.entities.enums.Direction;
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
 public class SpaceProbeResponse {
     private Long id;
@@ -13,4 +11,25 @@ public class SpaceProbeResponse {
     private Integer positionY;
     private Direction direction;
     private Long planet;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPositionX() {
+        return positionX;
+    }
+
+
+    public Integer getPositionY() {
+        return positionY;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }

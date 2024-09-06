@@ -1,11 +1,11 @@
 package com.desafio.elo7.usecases;
 
-import com.desafio.elo7.database.PlanetRepository;
-import com.desafio.elo7.database.SpaceProbeRepository;
+import com.desafio.elo7.controller.dto.SpaceProbeResponse;
+import com.desafio.elo7.database.PlanetDatabase;
+import com.desafio.elo7.database.SpaceProbeDatabase;
 import com.desafio.elo7.database.domain.PlanetData;
 import com.desafio.elo7.database.domain.SpaceProbeData;
 import com.desafio.elo7.entities.MovementCommands;
-import com.desafio.elo7.entities.SpaceProbe;
 import com.desafio.elo7.entities.enums.Direction;
 import com.desafio.elo7.exception.CommandsException;
 import com.desafio.elo7.exception.PlanetException;
@@ -17,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
@@ -26,31 +25,31 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MoveProbeUseCaseTest {
+public class MoveProbeUseCaseImplTest {
 
     @InjectMocks
-    MoveProbeUseCase moveProbeUseCase;
+    MoveProbeUseCaseImpl moveProbeUseCaseImpl;
 
     @Mock
-    SpaceProbeRepository spaceProbeRepository;
+    SpaceProbeDatabase spaceProbeDatabase;
 
     @Mock
-    PlanetRepository planetRepository;
+    PlanetDatabase planetDatabase;
 
     @Test
     void shouldMoveProbesSuccessfully() throws PlanetException, CommandsException, SpaceProbeException {
 
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
-        when(spaceProbeRepository.save(any())).thenReturn(spaceProbeDataBuild());
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
+        when(spaceProbeDatabase.save(any())).thenReturn(spaceProbeDataBuild());
 
-        SpaceProbe spaceProbe = moveProbeUseCase.execute(MovementCommands.builder()
+        SpaceProbeResponse spaceProbe = moveProbeUseCaseImpl.execute(MovementCommands.builder()
                         .commands("MMRMMRMRRML")
                 .build(), 1l);
 
-        verify(spaceProbeRepository, times(1)).save(any());
-        verify(planetRepository, times(1)).findById(any());
-        verify(spaceProbeRepository, times(1)).save(any());
+        verify(spaceProbeDatabase, times(1)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).save(any());
         assertEquals(1l, spaceProbe.getId());
         assertEquals("RTX45", spaceProbe.getName());
         assertEquals(5, spaceProbe.getPositionX());
@@ -60,52 +59,52 @@ public class MoveProbeUseCaseTest {
 
     @Test
     void shouldThrowCommandIsInvalid() {
-        assertThatExceptionOfType(CommandsException.class).isThrownBy(() ->  moveProbeUseCase.execute(MovementCommands.builder()
+        assertThatExceptionOfType(CommandsException.class).isThrownBy(() ->  moveProbeUseCaseImpl.execute(MovementCommands.builder()
                 .commands("MMRMMHRMRRML")
                 .build(), 1l));
-        verify(spaceProbeRepository, times(0)).findById(any());
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(0)).findById(any());
+        verify(spaceProbeDatabase, times(0)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(0)).findById(any());
     }
 
     @Test
     void shouldThrowPlanetDoesNotExist() {
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
-        when(planetRepository.findById(any())).thenReturn(Optional.empty());
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
+        when(planetDatabase.findById(any())).thenReturn(Optional.empty());
 
 
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCase.execute(MovementCommands.builder()
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCaseImpl.execute(MovementCommands.builder()
                 .commands("MMRMMRMRRML")
                 .build(), 1l));
-        verify(spaceProbeRepository, times(1)).findById(any());
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
     void shouldThrowInMoveProbePlanetDoesNotExist() {
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
-        when(planetRepository.findById(any())).thenReturn(Optional.empty());
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
+        when(planetDatabase.findById(any())).thenReturn(Optional.empty());
 
 
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCase.execute(MovementCommands.builder()
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCaseImpl.execute(MovementCommands.builder()
                 .commands("MMRMMRMRRML")
                 .build(), 1l));
-        verify(spaceProbeRepository, times(1)).findById(any());
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
     void shouldThrowInMoveProbeProbeDoesNotExist() {
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.empty());
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.empty());
 
-        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  moveProbeUseCase.execute(MovementCommands.builder()
+        assertThatExceptionOfType(SpaceProbeException.class).isThrownBy(() ->  moveProbeUseCaseImpl.execute(MovementCommands.builder()
                 .commands("MMRMMRMRRML")
                 .build(), 2l));
-        verify(spaceProbeRepository, times(1)).findById(any());
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(0)).findById(any());
+        verify(spaceProbeDatabase, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(0)).findById(any());
     }
 
     @Test
@@ -124,16 +123,16 @@ public class MoveProbeUseCaseTest {
         planetData.getProbes().add(spaceProbeData);
         planetData.getProbes().add(spaceProbeDataBuild());
 
-        when(spaceProbeRepository.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planetData));
+        when(spaceProbeDatabase.findById(any())).thenReturn(Optional.ofNullable(spaceProbeDataBuild()));
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planetData));
 
 
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCase.execute(MovementCommands.builder()
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  moveProbeUseCaseImpl.execute(MovementCommands.builder()
                 .commands("MMRMMRMRRML")
                 .build(), 1l));
-        verify(spaceProbeRepository, times(1)).findById(any());
-        verify(spaceProbeRepository, times(0)).save(any());
-        verify(planetRepository, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(1)).findById(any());
+        verify(spaceProbeDatabase, times(0)).save(any());
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     private PlanetData planetDataBuild(){

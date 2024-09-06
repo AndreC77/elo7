@@ -1,8 +1,9 @@
 package com.desafio.elo7.usecases;
 
-import com.desafio.elo7.database.PlanetRepository;
+import com.desafio.elo7.controller.dto.PlanetRequest;
+import com.desafio.elo7.controller.dto.PlanetResponse;
+import com.desafio.elo7.database.PlanetDatabase;
 import com.desafio.elo7.database.domain.PlanetData;
-import com.desafio.elo7.entities.Planet;
 import com.desafio.elo7.exception.PlanetException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,24 +21,20 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class PlanetUseCaseTest {
+public class PlanetUseCaseImplTest {
 
     @InjectMocks
-    PlanetUseCase planetUseCase;
+    PlanetUseCaseImpl planetUseCaseImpl;
 
     @Mock
-    PlanetRepository planetRepository;
+    PlanetDatabase planetDatabase;
 
     @Test
     void shouldCreatePlanetSuccessfully() throws PlanetException {
-        when(planetRepository.save(any())).thenReturn(planetDataBuild());
-        Planet planet = planetUseCase.createPlanet(Planet.builder()
-                        .name("Netuno")
-                        .maxX(5)
-                        .maxY(5)
-                .build());
+        when(planetDatabase.save(any())).thenReturn(planetDataBuild());
+        PlanetResponse planet = planetUseCaseImpl.createPlanet(new PlanetRequest("Netuno",5, 5));
 
-        verify(planetRepository, times(1)).save(any());
+        verify(planetDatabase, times(1)).save(any());
         assertEquals("Netuno", planet.getName());
         assertEquals(5, planet.getMaxX());
         assertEquals(5, planet.getMaxY());
@@ -45,21 +42,17 @@ public class PlanetUseCaseTest {
 
     @Test
     void shouldThrowInvalidPlanetArea() {
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  planetUseCase.createPlanet(Planet.builder()
-                .name("Netuno")
-                .maxX(0)
-                .maxY(0)
-                .build()));
-        verify(planetRepository, times(0)).save(any());
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  planetUseCaseImpl.createPlanet(new PlanetRequest("Netuno",0, 0)));
+        verify(planetDatabase, times(0)).save(any());
 
     }
 
     @Test
     void shouldReturnPlanetByIdSuccessfully() throws PlanetException {
-        when(planetRepository.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
-        Planet planet = planetUseCase.findById(1l);
+        when(planetDatabase.findById(any())).thenReturn(Optional.ofNullable(planetDataBuild()));
+        PlanetResponse planet = planetUseCaseImpl.findPlanetById(1l);
 
-        verify(planetRepository, times(1)).findById(any());
+        verify(planetDatabase, times(1)).findById(any());
         assertEquals("Netuno", planet.getName());
         assertEquals(5, planet.getMaxX());
         assertEquals(5, planet.getMaxY());
@@ -67,17 +60,17 @@ public class PlanetUseCaseTest {
 
     @Test
     void shouldThrowPlanetDoesNotExist(){
-        when(planetRepository.findById(any())).thenReturn(Optional.empty());
-        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  planetUseCase.findById(1l));
-        verify(planetRepository, times(1)).findById(any());
+        when(planetDatabase.findById(any())).thenReturn(Optional.empty());
+        assertThatExceptionOfType(PlanetException.class).isThrownBy(() ->  planetUseCaseImpl.findPlanetById(1l));
+        verify(planetDatabase, times(1)).findById(any());
     }
 
     @Test
     void shouldReturnAPlanetList() {
-        when(planetRepository.findAll()).thenReturn(List.of(planetDataBuild()));
-        List<Planet> planets = planetUseCase.findAllPlanets();
+        when(planetDatabase.findAll()).thenReturn(List.of(planetDataBuild()));
+        List<PlanetResponse> planets = planetUseCaseImpl.findAllPlanets();
 
-        verify(planetRepository, times(1)).findAll();
+        verify(planetDatabase, times(1)).findAll();
         assertFalse(planets.isEmpty());
         assertEquals("Netuno", planets.get(0).getName());
         assertEquals(5, planets.get(0).getMaxX());

@@ -4,9 +4,7 @@ import com.desafio.elo7.entities.enums.Direction;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
 public class SpaceProbeRequest {
     @NotBlank(message = "Probe name field cannot be empty or null")
@@ -21,4 +19,24 @@ public class SpaceProbeRequest {
     private Direction direction;
     @NotNull(message = "Id do Planeta cannot be null")
     private Long planetId;
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPositionX() {
+        return positionX;
+    }
+
+    public Integer getPositionY() {
+        return positionY;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public Long getPlanetId() {
+        return planetId;
+    }
 }
